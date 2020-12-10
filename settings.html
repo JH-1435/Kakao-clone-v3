@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Kokoa Clone</title>
+</head>
+<link rel="stylesheet" href="css/styles.css">
+<body>
+    <div class="status-bar">
+        <div class="status-bar__column">
+            <i class="fas fa-volume-mute"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-signal"></i>
+        </div>
+        <div class="status-bar__column js-clock">
+            <span class="status-bar__clock"></span>
+        </div>
+        <div class="status-bar__column">
+            <span>100%</span>
+            <i class="fas fa-battery-full fa-lg"></i>
+        </div>
+    </div>
+
+    <header class="alt-header">
+        <div class="alt-header__column">
+          <a href="more.html">
+            <i class="fas fa-angle-left fa-2x"></i>
+          </a>
+        </div>
+        <div class="alt-header__column">
+            <h1 class="alt-header__title">세팅</h1>
+        </div>
+        <div class="alt-header__column">
+            <i class="fas fa-search fa-lg"></i>
+        </div>
+    </header>
+
+    <main class="main-screen">
+        <ul class="settings-list">
+            <li class="settings__setting">
+                <div class="settings__setting-column">
+                <i class="fas fa-bullhorn"></i>
+                <span>공지사항</span>
+            </div>
+            <div class="settings__setting-column"></div>
+            </li>
+            <li class="settings__setting">
+            <div class="settings__setting-column">
+                <i class="fas fa-flask"></i>
+                <span>실험실</span>
+            </div>
+            <div class="settings__setting-column"></div>
+            </li>
+            <li class="settings__setting">
+                <div class="settings__setting-column">
+                <i class="fas fa-info-circle"></i>
+                <span>버전</span>
+            </div>
+            <div class="settings__setting-column">최신버전</div>
+            </li>
+        </ul>
+    </main>
+
+   <nav class="nav">
+       <ul class="nav__list">
+           <li class="nav__btn">
+               <a class="nav__link" href="friends.html">
+                <i class="far fa-user fa-2x"></i>
+                </a>
+            </li>
+           <li class="nav__btn">
+               <a class="nav__link" href="chats.html">
+                   <span class="nav__notification badge">1</span>
+                   <i class="far fa-comment fa-2x"></i>
+                </a>
+            </li>
+           <li class="nav__btn">
+               <a class="nav__link" href="find.html">
+                   <i class="fas fa-search fa-2x"></i>
+                </a>
+               </li>
+           <li class="nav__btn">
+               <a class="nav__link" href="more.html">
+                   <span class="nav__notification2 badge2">N</span>
+                   <i class="fas fa-ellipsis-h fa-2x"></i>
+                </a>
+        </li>
+       </ul>
+   </nav>
+     
+<div id="no-mobile">
+    <span>화면이 너무 큽니다 ㅠㅠ</span>
+</div>
+
+    <script src="https://kit.fontawesome.com/17d8ba1a67.js" crossorigin="anonymous"></script>
+    <script src="time.js">
+    </script>
+</body>
+</html>

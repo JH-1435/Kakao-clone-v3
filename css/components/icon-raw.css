@@ -1,0 +1,22 @@
+/* display: grid <- 그리드로 시작!(부모요소) - 박스 같은것
+grid-template-columns: repeat(4, 27%);
+그리드 크기들을 지정(columns는 열의 배치)
+repeat(4, 1fr) => 반복되는 값 자동 처리(그리드 박스를 자동처리), 4박스 1fr == 25% */
+.icon-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.icon-row__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px;
+}
+/* 아이콘 크기를 font-size로도 조절 가능 */
+.icon-row__icon i  {
+    font-size: 35px;
+}
+.icon-row__icon span {
+    font-size: 14.5px;
+    margin-top: 18px;
+}

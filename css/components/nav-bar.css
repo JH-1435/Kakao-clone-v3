@@ -1,0 +1,88 @@
+.nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f9f9fa;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(126, 126, 126, 0.3);
+}
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 아이콘이 위치한곳에 position: relative 를 설정해서 기준으로 만듬 */ 
+.nav__link {
+    position: relative;
+    color: #2e363e;
+}
+
+
+@keyframes notificationAnimation {
+    0% {
+        transform: none;
+    }
+    50% {
+        transform: translateY(-5px) rotateY(360deg);
+    }
+    100% {
+        transform: none;
+    }
+}
+@keyframes notificationAnimation2 {
+    0% {
+        transform: none;
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: none;
+    }
+}
+/* nav__notification 가 <span> 이여서 display를 해줘야 div 같이 됨 */
+/* 아이콘 위에 나타내고 싶어서 position: absolute를 함 */
+/* position: absolute 는 position: relative를 가진것에 기준으로 움직임 평소에는 body 를 기준으로 잡음
+infinite는 애니메이션이 계속 영원히 작동함 */
+.nav__notification {
+    position: absolute;
+    left: 20px;
+    bottom: 15px;
+    animation: notificationAnimation 2s ease-in-out infinite;
+}
+.nav__notification2 {
+    position: absolute;
+    left: 30px;
+    bottom: 20px;
+    animation: notificationAnimation2 2s ease-in-out infinite;
+}
+
+@keyframes appearBtnAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+/* transform: translateY(50px);을 nav__btn에 넣음으로써,
+애니메이션이 각각 다른 위치에서 시작됨, 처음 버튼은 0.3s에 시작하고
+그다음 버튼(2번째)는 0.3s 지난후 0.2s 후에 실행... 이런식으로 진행이됨 */
+.nav__btn {
+    transform: translateY(50px);
+    opacity: 0;
+    animation: appearBtnAnimation 0.3s ease-in-out forwards;
+}
+.nav__btn:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.nav__btn:nth-child(3) {
+    animation-delay: 0.5s;
+}
+.nav__btn:last-child {
+    animation-delay: 0.8s;
+}
+
+

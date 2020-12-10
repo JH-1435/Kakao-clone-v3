@@ -1,0 +1,121 @@
+#find-screen {
+    height: 115vh;
+}
+.recommended-friends {
+    margin-top: 25px;
+    padding: 25px 0px;
+    border-top: var(--main--border);
+    border-bottom: var(--main--border);
+}
+.recommended-friends__title {
+    font-size: 14px;
+    color: var(--gray--color);
+}
+.recommended-friends span {
+    margin: 100px 0px;
+    text-align: center;
+    display: block;
+    font-size: 18px;
+    color: var(--gray--color);
+}
+.open-chat__header {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.8;
+    padding-top: 25px;
+    margin-bottom: 25px;
+}
+.open-chat__header span {
+    color: var(--gray--color);
+}
+.open-post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.open-post__title {
+    margin-top: -10px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+/* 텍스트(모든 글자)를 대문자로 바꾸기 */
+.open-post__hashtags {
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+.open-post__members {
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
+}
+.open-post__members img {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.open-post__members-count {
+    opacity: 0.5;
+    font-size: 14px;
+}
+.open-post__members .divider {
+    width: 2px;
+    height: 15px;
+    margin: 0 5px;
+    background-color: var(--gray--color);
+}
+.open-post__members-status {
+    color: #ffb0e0;
+}
+
+/* 하트 위치 기준을 잡음 */
+.open-post__photo {
+    position: relative;
+}
+.open-post__photo img {
+    margin-top: 10px;
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
+
+/* 하트 설정(위치 설정 등등) */
+.open-post__heart-count {
+    background-color: var(--gray--color);
+    color: white;
+    padding: 5px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+}
+.open-post__heart-count span, i {
+    margin: 0px 3px;
+}
+@keyframes heartBeat {
+    0% {
+        color: white;
+        transform: none;
+    }
+    50% {
+        color: tomato;
+        transform: scale(1.5);
+    }
+    100% {
+        color: white;
+        transform: none;
+    }
+}
+/* linear :   일정한 속도로 진행
+will-change: transform;은 브라우저에게 transform이 변화할것 이라고 미리 말해줘서
+애니메이션을 가속화할 수 있음 */
+.open-post__heart-count:hover i {
+    will-change: transform;
+    animation: heartBeat 1s linear infinite;
+}
+
+

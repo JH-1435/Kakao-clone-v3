@@ -1,0 +1,228 @@
+#chat-screen {
+    background-color: #abc1d1;
+    height: 200vh;
+}
+#chat-screen .alt-header {
+    position: fixed; /* 위치 고정 */
+    width: 100%;
+    box-sizing: border-box;
+    top: 10px;
+    background-color: #abc1d1;
+    z-index: 1;
+}
+/* z-index의 숫자가 높을수록 더 앞으로, layer 같은것 
+position의 fixed 나 absolute에 대해서 설정할수 있음*/
+#chat-screen .status-bar {
+    background-color: #abc1d1;
+    z-index: 2; 
+}
+
+@keyframes fadeIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+/* flex == Block 요소와 같은 성향(수직 쌓임)
+박스모델이 flex박스 로 변경되어 크기에 맞춰줌 */
+/* 요소들이 서로 위아래로 정렬되야 하므로, column을 해줌 */
+.main-chat {
+    display: flex;
+    margin-top: 150px;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.3s linear forwards;
+}
+
+.chat__timestamp {
+    color: white;
+    background-color: #92a4b2;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+}
+
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: 0;
+        opacity: 1;
+    }
+}
+.message-row {
+    width: 100%;
+    display: flex;
+    margin-bottom: 25px;
+    animation: fadeInLeft 0.3s linear forwards;
+}
+
+@keyframes authorImgAnimation {
+    0% {
+        transform: none;
+    }
+    50% {
+        transform: rotateY(360deg)
+    }
+    100% {
+        transform: none;
+    }
+}
+.message-row img {
+    width: 50px;
+    height: 50px;
+    border-radius: 45%;
+    margin-right: 10px;
+    animation: authorImgAnimation 3s linear infinite;
+}
+
+.message_author {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.message__info {
+    display: flex;
+    align-items: flex-end;
+}
+.message__bubble {
+    background-color: white;
+    padding: 13px;
+    font-size: 18px;
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    margin-right: 5px;
+}
+.message__time,
+.message_author {
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        transform: 0;
+        opacity: 1;
+    }
+}
+.message-row--own  {
+    justify-content: flex-end;
+    animation: fadeInRight 0.3s linear forwards;
+}
+
+.message-row--own .message__bubble {
+    background-color: var(--yellow);
+    border-top-right-radius: 0px;
+    border-top-left-radius: 15px;
+    margin-right: 0px;
+    margin-left: 5px;
+}
+/*
+order속성은 flex 자식들에게만 적용됨(message-row 가 전체를 감싸는 flex박스(부모)
+그 아래있는 애들은 flex children(자식) 그리하여, message__time이 order:0 이여서
+순서가 바뀜 
+.message-row--own .message__bubble {
+    order: 1;
+}
+.message-row--own .message__time {
+    order: 0;
+}
+*/
+/* flex-direction(플렉스 방향):row-reverse를 선택하면 주축은 인라인 방향으로 행을 따릅니다. 
+우측 -> 좌측 으로 만들어지는 형태*/
+.message-row--own .message__info {
+    flex-direction: row-reverse;
+}
+.reply {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 25px;
+    box-sizing: border-box;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+.reply .reply__column:first-child {
+    width: 10%;
+}
+.reply .reply__column:last-child {
+    width: 90%;
+    position: relative;
+}
+
+.reply i {
+    opacity: 0.5;
+}
+
+.reply input {
+    padding: 12px;
+    width: 100%;
+    border: var(--main--border);
+    border-radius: 20px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+.reply__column:last-child > i,
+.reply__column:last-child button {
+    position: absolute;
+    right: 3px;
+    top: 5px;
+}
+.reply__column:last-child > i {
+    right: 40px;
+    top: 13px;
+}
+.reply__column button {
+    background-color: var(--yellow);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+.reply__column button i {
+    opacity: 1;
+}
+.reply__column button:focus,
+.reply__column button:active {
+    outline: none;
+}
+
+.reply .reply__column:first-child,
+.reply .fa-smile-wink {
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+/* :focus는 클릭하면 어떻게 바꿀것인가 이고,
+:focus-within은 클릭(focus)되어 있는 element가 있는지 알수 있게 되어,
+바꿀수 있음, 주로 input이나 form을 강조할때 쓰임 */
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile-wink {
+    opacity: 0;
+}
+
+.reply input:focus {
+    width: 95vw;
+    transform: translateX(-13%) translateY(-80px);
+}
+.reply:focus-within button {
+    transform: translateX(-13%) translateY(-80px);
+}
+.reply:focus-within {
+    transform: translateY(80px);
+}
